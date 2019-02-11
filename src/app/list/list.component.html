@@ -1,3 +1,6 @@
-<p>
-  list works!
-</p>
+<ul *ngFor="let videoGame of this.service.getVideoGames() | async">
+  <li>{{videoGame.name}}</li>
+  <li>{{videoGame.type}}</li>
+  <li>{{videoGame.description}}</li>
+  <li>{{videoGame.price}}</li>
+</ul>
