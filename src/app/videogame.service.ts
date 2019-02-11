@@ -28,6 +28,11 @@ export class VideogameService {
     return new BehaviorSubject(videoGames);;
   }
 
+  getVideoGame(name: string){
+    let videoGame : VideoGame = JSON.parse(localStorage.getItem(name));
+    return new BehaviorSubject(videoGame);;
+  }
+
   delete(videoGame : VideoGame){
     localStorage.removeItem(videoGame.name);
   }

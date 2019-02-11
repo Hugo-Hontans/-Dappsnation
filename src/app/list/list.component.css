@@ -29,5 +29,13 @@ td.mat-cell {
     font-size: 24px;
 }
 
+.button-delete:hover {
+    background-color : red;
+}
+
+.button-view:hover {
+    background-color: #ffcc99;
+}
+
 
 

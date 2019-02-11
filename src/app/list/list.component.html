@@ -1,10 +1,3 @@
-<ul *ngFor="let videoGame of this.service.getVideoGames() | async">
-  <li>{{videoGame.name}}</li>
-  <li>{{videoGame.type}}</li>
-  <li>{{videoGame.description}}</li>
-  <li>{{videoGame.price}}</li>
-</ul>
-
 <table mat-table [dataSource]="this.service.getVideoGames() | async" >
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -14,10 +7,16 @@
     <th mat-header-cell *matHeaderCellDef> Type </th>
     <td mat-cell *matCellDef="let videoGame"> {{videoGame.type}} </td>
   </ng-container>
+  <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef class="text-center">View detail</th>
+    <td mat-cell *matCellDef="let videoGame"><button (click)="viewDetail(videoGame)" class="button-view">View</button></td>
+  </ng-container>
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef>Delete</th>
-    <td mat-cell *matCellDef="let videoGame"><button (click)="delete(videoGame)">Delete</button></td>
+    <td mat-cell *matCellDef="let videoGame"><button (click)="delete(videoGame)" class="button-delete">Delete</button></td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
+
+<app-view *ngIf="boolView" [videoGame]="videoGame"></app-view>

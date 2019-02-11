@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideogameService } from '../videogame.service';
+import { VideoGame } from '../VideoGame';
 
 @Component({
   selector: 'app-list',
@@ -8,7 +9,10 @@ import { VideogameService } from '../videogame.service';
 })
 export class ListComponent implements OnInit {
 
-  columnsToDisplay = ['name', 'type', 'delete'];
+  columnsToDisplay = ['name', 'type', 'view', 'delete'];
+
+  boolView = false;
+  videoGame : VideoGame;
 
   constructor(private service : VideogameService) { }
 
@@ -19,5 +23,14 @@ export class ListComponent implements OnInit {
   delete(videoGame){
     this.service.delete(videoGame);
   }
-
+  
+  viewDetail(videoGame){
+    if(this.boolView){ 
+      this.videoGame = videoGame;
+    }
+    else {
+      this.boolView = true;
+      this.videoGame = videoGame;
+    }
+  }
 }

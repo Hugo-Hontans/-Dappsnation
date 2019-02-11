@@ -1,0 +1,15 @@
+.borderCard {
+    border: 2px solid black;
+    box-shadow: 7px 7px #e1e8e7;
+    border-radius: 5px;
+}
+
+
+h4 {
+    color: orange;
+}
+
+mat-card{
+    width: 50%;
+    margin: 30px auto;
+}
