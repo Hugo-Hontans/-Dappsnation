@@ -1,0 +1,33 @@
+
+table {
+    width: 50%;
+    margin : auto;
+    border: 2px solid black;
+}
+
+tr.mat-row {
+    height: 80px;
+}
+
+td {
+    cursor: pointer;
+}
+
+tr.mat-row:hover {
+    color : #ff3300;
+}
+
+th.mat-header-cell {
+    background-color: #ffcc99;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    border-bottom: 2px solid black;
+}
+
+td.mat-cell {
+    font-size: 24px;
+}
+
+
+

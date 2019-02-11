@@ -4,3 +4,20 @@
   <li>{{videoGame.description}}</li>
   <li>{{videoGame.price}}</li>
 </ul>
+
+<table mat-table [dataSource]="this.service.getVideoGames() | async" >
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let videoGame"> {{videoGame.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Type </th>
+    <td mat-cell *matCellDef="let videoGame"> {{videoGame.type}} </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Delete</th>
+    <td mat-cell *matCellDef="let videoGame"><button (click)="delete(videoGame)">Delete</button></td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>

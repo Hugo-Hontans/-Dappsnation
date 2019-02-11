@@ -8,10 +8,16 @@ import { VideogameService } from '../videogame.service';
 })
 export class ListComponent implements OnInit {
 
+  columnsToDisplay = ['name', 'type', 'delete'];
+
   constructor(private service : VideogameService) { }
 
   ngOnInit() {
     this.service.init();
+  }
+
+  delete(videoGame){
+    this.service.delete(videoGame);
   }
 
 }
