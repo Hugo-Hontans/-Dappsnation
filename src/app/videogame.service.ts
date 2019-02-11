@@ -35,7 +35,7 @@ export class VideogameService {
   }
 
   delete(videoGame : VideoGame){
-    localStorage.removeItem(videoGame.name);
+    localStorage.removeItem(videoGame.id);
   }
 
   change(videoGame: VideoGame, form){
