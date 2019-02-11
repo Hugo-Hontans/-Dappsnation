@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   columnsToDisplay = ['name', 'type', 'view', 'delete'];
 
   boolView = false;
+  boolViewAdd = false;
   videoGame : VideoGame;
 
   constructor(private service : VideogameService) { }
@@ -22,10 +23,14 @@ export class ListComponent implements OnInit {
 
   delete(videoGame){
     this.service.delete(videoGame);
+    this.boolView = false;
+    this.boolViewAdd = false;
   }
   
   viewDetail(videoGame){
+    this.boolViewAdd = false;
     if(this.boolView){ 
+      this.boolView = false;
       this.videoGame = videoGame;
     }
     else {
@@ -33,4 +38,12 @@ export class ListComponent implements OnInit {
       this.videoGame = videoGame;
     }
   }
+
+  add(){
+    this.boolViewAdd = true;
+    this.boolView = false;
+  }
+
+
+  
 }

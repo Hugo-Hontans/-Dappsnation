@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VideoGame } from '../VideoGame';
+import { VideogameService } from '../videogame.service';
 
 @Component({
   selector: 'app-view',
@@ -10,7 +11,15 @@ export class ViewComponent implements OnInit {
 
   @Input() videoGame : VideoGame;
 
-  constructor() { }
+  constructor(private service : VideogameService) { }
+
+  panier(){
+    this.service.panier(this.videoGame);
+  }
+
+  removePanier(){
+    this.service.removePanier(this.videoGame);
+  }
 
   ngOnInit() {
   }

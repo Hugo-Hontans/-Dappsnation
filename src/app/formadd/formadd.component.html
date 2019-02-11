@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <label for="name">Name</label>
+    <input formControlName="name" type="text">
+    <label for="name">Type</label>
+    <input formControlName="type" type="text">
+    <label for="name">Description</label>
+    <input formControlName="description" type="text">
+    <label for="name">Price</label>
+    <input formControlName="price" type="text">
+    <button type="submit">Add</button>
+</form>

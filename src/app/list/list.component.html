@@ -1,3 +1,5 @@
+<img src="http://lasabretache.fr/wp-content/uploads/2016/03/icone_caddie_plus.png"><span *ngIf="this.service.getPanier() | async; let total">{{total}}€</span>
+
 <table mat-table [dataSource]="this.service.getVideoGames() | async" >
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -19,4 +21,10 @@
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
 
-<app-view *ngIf="boolView" [videoGame]="videoGame"></app-view>
+<button (click)="add()">Add a video game</button>
+
+<app-view  *ngIf="boolView" [videoGame]="videoGame"></app-view>
+
+<app-form *ngIf="boolView" [videoGame]="videoGame"  [boolView]="boolView" (boolViewChange)="boolView = false"></app-form>
+
+<app-formadd *ngIf="boolViewAdd" [boolViewAdd]="boolViewAdd" (boolViewAddChange)="boolViewAdd = false"></app-formadd>

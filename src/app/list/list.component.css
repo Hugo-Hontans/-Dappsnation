@@ -1,4 +1,6 @@
-
+img {
+    max-width: 30px;
+}
 table {
     width: 50%;
     margin : auto;
