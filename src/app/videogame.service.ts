@@ -11,22 +11,23 @@ export class VideogameService {
   constructor() { }
 
   init(){
-    localStorage.clear();
-    let jeux1 : VideoGame = { id : "0", name: 'Battlefield 3', type: 'FPS', description : 'Battlefield 3 is a first-person shooter video game developed by EA DICE and published by Electronic Arts. It is a direct sequel to 2005s Battlefield 2, and the eleventh installment in the Battlefield franchise.', price : 60 };
-    let jeux2 : VideoGame = { id:"1", name: 'Dark Souls 3', type: 'RPG', description : 'Dark Souls III est un jeu vidéo d\'Action-RPG de dark fantasy développé par FromSoftware. Ce troisième opus de la série Souls est sorti sur Microsoft Windows, PlayStation 4 et Xbox One en mars 2016 au Japon et en avril en Amérique du Nord et en Europe.', price : 40 };
+    if (localStorage.length < 2){
+      let game1 : VideoGame = { id : "0", name: 'Battlefield 3', type: 'FPS', description : 'Battlefield 3 is a first-person shooter video game developed by EA DICE and published by Electronic Arts. It is a direct sequel to 2005s Battlefield 2, and the eleventh installment in the Battlefield franchise.', price : 60 };
+      let game2 : VideoGame = { id:"1", name: 'Dark Souls 3', type: 'RPG', description : 'Dark Souls III is an action role-playing video game developed by FromSoftware and published by Bandai Namco Entertainment for PlayStation 4, Xbox One, and Microsoft Windows. The fourth entry in the Souls series, Dark Souls III was released in Japan in March 2016 and worldwide in April 2016.Dark Souls III was critically and commercially successful, with critics calling it a worthy and fitting conclusion to the series. It was the fastest-selling game in Bandai Namco\'s history, shipping over three million copies worldwide within the first two months after release. A complete version containing the base game and both downloadable content expansions, titled Dark Souls III: The Fire Fades, was released in April 2017.', price : 39.99 };
 
-    localStorage.setItem(jeux1.id, JSON.stringify(jeux1));
-    localStorage.setItem(jeux2.id, JSON.stringify(jeux2));
+      localStorage.setItem(game1.id, JSON.stringify(game1));
+      localStorage.setItem(game2.id, JSON.stringify(game2));
 
-    let panier = [];
-    localStorage.setItem("panier", JSON.stringify(panier));
+      let shoppingCart = [];
+      localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+    }
   }
 
   getVideoGames(){
     let videoGames : VideoGame[] = [];
     for (let i = 0; i < localStorage.length; i++){
       let key = localStorage.key(i);
-      if (key != "panier"){
+      if (key != "shoppingCart"){
       let value : VideoGame = JSON.parse(localStorage.getItem(key));
       videoGames.push(value);   
       } 
@@ -35,7 +36,7 @@ export class VideogameService {
   }
 
   delete(videoGame : VideoGame){
-    localStorage.removeItem(videoGame.id);
+    localStorage.removeItem(videoGame.id );
   }
 
   change(videoGame: VideoGame, form){
@@ -50,31 +51,31 @@ export class VideogameService {
     localStorage.setItem(id, JSON.stringify(form));  
   }
 
-  getPanier(){
-    let panier = JSON.parse(localStorage.getItem("panier"));
+  getShoppingCart(){
+    let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
     let total = 0;
 
-    for(let i=0; i < panier.length; i++){
-      total += panier[i].price
+    for(let i=0; i < shoppingCart.length; i++){
+      total += shoppingCart[i].price
     }
 
     return new BehaviorSubject(total);;
   }
 
-  panier(item){
-    let panier = JSON.parse(localStorage.getItem("panier"));
-    panier.push(item);
-    localStorage.setItem("panier", JSON.stringify(panier));
+  shoppingCart(item){
+    let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+    shoppingCart.push(item);
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
   }
 
-  removePanier(item){
-    let panier = JSON.parse(localStorage.getItem("panier"));
-    for(let i=0; i < panier.length; i++){
-      if (panier[i].name==item.name){
-        let elementsSupprimes = panier.splice(i, 1);
+  removeShoppingCart(item){
+    let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+    for(let i=0; i < shoppingCart.length; i++){
+      if (shoppingCart[i].name==item.name){
+        let deletedElements = shoppingCart.splice(i, 1);
       }
     }
     
-    localStorage.setItem("panier", JSON.stringify(panier));
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
   }
 }

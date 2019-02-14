@@ -39,7 +39,7 @@ export class ListComponent implements OnInit {
     }
   }
 
-  add(){
+  addVideoGame(){
     this.boolViewAdd = true;
     this.boolView = false;
   }

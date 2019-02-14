@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { VideoGame } from '../VideoGame';
 import { VideogameService } from '../videogame.service';
 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -13,12 +17,12 @@ export class ViewComponent implements OnInit {
 
   constructor(private service : VideogameService) { }
 
-  panier(){
-    this.service.panier(this.videoGame);
+  shoppingCart(){
+    this.service.shoppingCart(this.videoGame);
   }
 
-  removePanier(){
-    this.service.removePanier(this.videoGame);
+  removeshoppingCart(){
+    this.service.removeShoppingCart(this.videoGame);
   }
 
   ngOnInit() {

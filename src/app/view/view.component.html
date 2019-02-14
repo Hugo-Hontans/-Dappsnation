@@ -7,10 +7,10 @@
   </mat-card-header>
 
   <mat-card-content>
-      <h4>{{videoGame.price}}€</h4>
+      <h4>{{videoGame.price | currency:'EUR':'symbol':'0.2':'fr'}}</h4>
       <p>{{videoGame.description}}</p>
   </mat-card-content>
 </mat-card>
 
-<button (click)="panier()">Add to shopping cart</button>
-<button (click)="removePanier()">Remove to shopping cart</button>
+<button (click)="shoppingCart()">Add to shopping cart</button>
+<button (click)="removeShoppingCart()">Remove to shopping cart</button>
