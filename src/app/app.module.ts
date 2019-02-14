@@ -10,6 +10,7 @@ import { ViewComponent } from './view/view.component';
 import { FormComponent } from './form/form.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormaddComponent } from './formadd/formadd.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormaddComponent } from './formadd/formadd.component';
     ListComponent,
     ViewComponent,
     FormComponent,
-    FormaddComponent
+    FormaddComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

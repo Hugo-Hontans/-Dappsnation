@@ -10,7 +10,8 @@
       <h4>{{videoGame.price | currency:'EUR':'symbol':'0.2':'fr'}}</h4>
       <p>{{videoGame.description}}</p>
   </mat-card-content>
+  <button (click)="shoppingCart()">Add to shopping cart</button>
 </mat-card>
 
-<button (click)="shoppingCart()">Add to shopping cart</button>
-<button (click)="removeShoppingCart()">Remove to shopping cart</button>
+
+

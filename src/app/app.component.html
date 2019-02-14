@@ -1,1 +1,2 @@
+<img  routerLink="/shoppingcart" src="http://lasabretache.fr/wp-content/uploads/2016/03/icone_caddie_plus.png"><span *ngIf="this.service.getShoppingCart() | async; let total">{{total | currency:'EUR':'symbol':'0.2':'fr'}}</span>
 <router-outlet></router-outlet>

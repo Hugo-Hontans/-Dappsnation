@@ -21,9 +21,7 @@ export class ViewComponent implements OnInit {
     this.service.shoppingCart(this.videoGame);
   }
 
-  removeshoppingCart(){
-    this.service.removeShoppingCart(this.videoGame);
-  }
+
 
   ngOnInit() {
   }

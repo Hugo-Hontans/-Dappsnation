@@ -68,6 +68,14 @@ export class VideogameService {
     localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
   }
 
+  
+  getShoppingCartList(){
+    let shoppingCartList = JSON.parse(localStorage.getItem("shoppingCart"));
+
+    return new BehaviorSubject(shoppingCartList);;
+  }
+
+
   removeShoppingCart(item){
     let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
     for(let i=0; i < shoppingCart.length; i++){
