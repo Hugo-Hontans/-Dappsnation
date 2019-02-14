@@ -6,6 +6,7 @@
     <label for="name">Description</label>
     <input formControlName="description" type="text">
     <label for="name">Price</label>
-    <input formControlName="price" type="text">
-    <button type="submit">Change</button>
+    <input formControlName="price" type="number">
+    <button *ngIf="boolView" type="submit">Change</button>
+    <button *ngIf="boolViewAdd" type="submit">Add</button>
 </form>

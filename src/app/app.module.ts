@@ -9,7 +9,6 @@ import { MatTableModule, MatButtonModule, MatCardModule } from '@angular/materia
 import { ViewComponent } from './view/view.component';
 import { FormComponent } from './form/form.component'
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormaddComponent } from './formadd/formadd.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ListComponent,
     ViewComponent,
     FormComponent,
-    FormaddComponent,
     ShoppingCartComponent
   ],
   imports: [

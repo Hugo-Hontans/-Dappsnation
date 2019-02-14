@@ -3,6 +3,9 @@ table {
     margin : auto;
     border: 2px solid black;
 }
+h1{
+    text-align: center;
+}
 
 tr.mat-row {
     height: 80px;
