@@ -55,8 +55,10 @@ export class VideogameService {
     let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
     let total = 0;
 
-    for(let i=0; i < shoppingCart.length; i++){
-      total += shoppingCart[i].price
+    if (shoppingCart != null){
+      for(let i=0; i < shoppingCart.length; i++){
+        total += shoppingCart[i].price
+      }
     }
 
     return new BehaviorSubject(total);;
